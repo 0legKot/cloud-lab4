@@ -13,14 +13,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read #This is required for actions/checkout
 
     steps:
       - uses: actions/checkout@v4
 
       - name: Set up Python version
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v1
         with:
           python-version: '3.12'
 
@@ -63,7 +61,7 @@ jobs:
 
       
       - name: 'Deploy to Azure Web App'
-        uses: azure/webapps-deploy@v3
+        uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
           app-name: 'oleh-lab4'
