@@ -64,16 +64,17 @@ def get_country(id):
 
 @app.route("/countries", methods=["POST"])
 def create_country():
-    data = request.get_json() or {}
-    new_country = Country(
-        name=data.get("name"),
-        capital=data.get("capital"),
-        population=data.get("population"),
-        is_landlocked=data.get("is_landlocked", False)
-    )
-    db.session.add(new_country)
-    db.session.commit()
-    return jsonify({"message": "Country created", "id": new_country.id}), 201
+    return jsonify({"message": "Hello"})
+    #data = request.get_json() or {}
+    #new_country = Country(
+    #    name=data.get("name"),
+    #    capital=data.get("capital"),
+    #    population=data.get("population"),
+    #    is_landlocked=data.get("is_landlocked", False)
+    #)
+    #db.session.add(new_country)
+    #db.session.commit()
+    #return jsonify({"message": "Country created", "id": new_country.id}), 201
 
 @app.route("/countries/<int:id>", methods=["PUT"])
 def update_country(id):
